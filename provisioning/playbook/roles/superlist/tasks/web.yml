@@ -1,0 +1,15 @@
+---
+- name: create superlist www directory
+  file: path={{superlist_www}} state=directory
+
+- name: copy superlist web files
+  synchronize: src={{superlist_web}}/ dest={{superlist_www}}/
+               rsync_path="sudo rsync" delete=yes
+
+- name: replace localhost by vagrant ip
+  shell: sed -i 's/localhost/{{testvm_ip}}/g' {{superlist_www}}/script.js
+  when: inventory_hostname == "testvm"
+
+- name: replace localhost by testvm ip
+  shell: sed -i 's/localhost/{{droplet_ip}}/g' {{superlist_www}}/script.js
+  when: inventory_hostname == "droplet"

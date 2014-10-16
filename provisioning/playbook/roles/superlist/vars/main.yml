@@ -1,0 +1,8 @@
+superlist_dir: /opt/superlist
+superlist_libs: ../../../../../superlist-server/build/libs
+superlist_jar: superlist-0.1.0.jar
+
+superlist_www: /opt/superlist/www
+superlist_web: ../../../../../superlist-web
+testvm_ip: 192.168.2.2
+droplet_ip: 107.170.116.108

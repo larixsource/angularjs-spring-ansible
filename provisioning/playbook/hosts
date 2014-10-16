@@ -1,0 +1,12 @@
+droplet ansible_ssh_host=107.170.116.108 ansible_ssh_port=22
+testvm ansible_ssh_host=127.0.0.1 ansible_ssh_port=2222
+
+[production]
+droplet
+
+[vagrant]
+testvm
+
+[servers:children]
+vagrant
+production

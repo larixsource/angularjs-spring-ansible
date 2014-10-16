@@ -1,0 +1,13 @@
+---
+- name: create superlist directory
+  file: path={{superlist_dir}} state=directory
+
+- name: copy superlist jar
+  copy: src={{superlist_libs}}/{{superlist_jar}}
+        dest={{superlist_dir}}/{{superlist_jar}}
+
+- name: generate upstart script
+  template: src=superlist.conf dest=/etc/init/superlist.conf
+
+- name: launch service
+  service: name=superlist state=started

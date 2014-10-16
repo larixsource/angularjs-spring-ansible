@@ -1,0 +1,14 @@
+---
+- name: generate config of nginx proxy
+  template: src=superlist-site
+            dest=/etc/nginx/sites-available/superlist-site
+
+- name: unlink default nginx site
+  file: path=/etc/nginx/sites-enabled/default state=absent
+
+- name: activate superlist-site
+  file: src=/etc/nginx/sites-available/superlist-site
+        dest=/etc/nginx/sites-enabled/superlist-site state=link
+
+- name: restart nginx
+  service: name=nginx state=reloaded
