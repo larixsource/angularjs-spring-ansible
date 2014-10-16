@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="superlist">
+
+<head>
+  <link data-require="font-awesome@4.2.0" data-semver="4.2.0" rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css"/>
+  <script data-require="angular.js@1.2.14" data-semver="1.2.14"
+          src="https://code.angularjs.org/1.2.14/angular.js"></script>
+  <script data-require="angular-resource@1.2.14" data-semver="1.2.14"
+          src="http://code.angularjs.org/1.2.14/angular-resource.js"></script>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="script.js"></script>
+</head>
+
+<body ng-controller="listCtrl">
+<h1>Things to buy:</h1>
+<ol>
+  <li ng-repeat="item in items">{{item.name}}
+    <a ng-click="removeItem(item)">
+      <span class="fa fa-trash-o"></span>
+    </a>
+  </li>
+</ol>
+<form ng-submit="addNewItem()">
+  <input type="text" ng-model="newItem.name"/>
+  <input type="submit" value="Add" ng-disabled="newItem.adding"/>
+</form>
+</body>
+
+</html>
