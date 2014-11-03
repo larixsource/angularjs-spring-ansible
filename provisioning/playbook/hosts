@@ -6,7 +6,3 @@ droplet
 
 [vagrant]
 testvm
-
-[servers:children]
-vagrant
-production
