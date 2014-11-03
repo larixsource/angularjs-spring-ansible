@@ -1,6 +1,8 @@
 ---
 - hosts: all
   sudo: yes
+  vars:
+    nginx_delete_default_site: yes
   roles:
     - Stouts.mongodb
     - Stouts.nginx
