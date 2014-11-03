@@ -7,5 +7,5 @@
   file: src=/etc/nginx/sites-available/superlist-site
         dest=/etc/nginx/sites-enabled/superlist-site state=link
 
-- name: restart nginx
+- name: reload nginx
   service: name=nginx state=reloaded
