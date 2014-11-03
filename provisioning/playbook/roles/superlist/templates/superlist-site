@@ -1,22 +1,21 @@
 # {{ ansible_managed }}
 server {
-        listen 80 default_server;
-        listen [::]:80 default_server ipv6only=on;
+    listen 80 default_server;
+    listen [::]:80 default_server ipv6only=on;
 
-        root {{superlist_www}};
-        index index.html index.htm;
+    root {{superlist_www}};
+    index index.html index.htm;
 
-        # Make site accessible from http://localhost/
-        server_name localhost;
+    server_name localhost;
 
-        location / {
-                try_files $uri $uri/ =404;
-        }
+    location / {
+        try_files $uri $uri/ =404;
+    }
 
-        location /superlist/ {
-                proxy_pass http://localhost:8080/;
-                proxy_set_header Host $host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        }
+    location /superlist/ {
+        proxy_pass http://localhost:8080/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
 }
