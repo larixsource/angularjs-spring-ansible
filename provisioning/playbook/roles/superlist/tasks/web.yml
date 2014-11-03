@@ -3,8 +3,7 @@
   file: path={{superlist_www}} state=directory
 
 - name: copy superlist web files
-  synchronize: src={{superlist_web}}/ dest={{superlist_www}}/
-               rsync_path="sudo rsync" delete=yes
+  copy: src={{superlist_web}}/ dest={{superlist_www}}
 
 - name: replace localhost
   shell: sed -i 's/localhost/{{public_host}}/g' {{superlist_www}}/script.js
