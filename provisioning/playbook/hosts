@@ -1,8 +1,8 @@
-droplet ansible_ssh_host=107.170.116.108 ansible_ssh_port=22
+droplet ansible_ssh_host=104.236.41.214 ansible_ssh_port=22
 testvm ansible_ssh_host=127.0.0.1 ansible_ssh_port=2222
 
 [production]
-droplet ansible_ssh_user=root server_name=107.170.116.108
+droplet ansible_ssh_user=root
 
 [vagrant]
-testvm server_name=192.168.2.2
+testvm

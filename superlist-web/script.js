@@ -42,7 +42,7 @@ angular.module('superlist', ['ngResource'])
   })
   .factory('items', function ($log, $resource) {
 
-    var url = 'http://localhost/superlist/items/:id';
+    var url = 'superlist/items/:id';
     var itemsRes = $resource(url, {id: '@id'}, {
       list: {
         method: 'GET', isArray: true, transformResponse: function (data, headersGetter) {
