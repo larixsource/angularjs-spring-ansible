@@ -6,4 +6,4 @@
   copy: src={{superlist_web}}/ dest={{superlist_www}}
 
 - name: replace localhost
-  shell: sed -i 's/localhost/{{ansible_eth0.ipv4.address}}/g' {{superlist_www}}/script.js
+  shell: sed -i 's/localhost/{{server_name}}/g' {{superlist_www}}/script.js
