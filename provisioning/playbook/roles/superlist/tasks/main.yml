@@ -1,6 +1,6 @@
 ---
 - name: install openjdk7
-  apt: pkg=openjdk-7-jdk state=present update_cache=true
+  apt: name=openjdk-7-jdk state=present update_cache=true
 
 - include: server.yml
 - include: web.yml
